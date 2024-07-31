@@ -3,4 +3,5 @@ export interface IMovie {
     rating: number;
     genre: string;
     description: string;
-}
+  }
+  

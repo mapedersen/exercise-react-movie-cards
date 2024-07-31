@@ -2,10 +2,10 @@ import { ReactElement } from "react";
 import { IMovie } from "../../interfaces";
 
 interface IMovieListProps {
-  movie: IMovie;
+  movies: IMovie[];
 }
 
-export function MovieList({ movie }: IMovieListProps):ReactElement {
+export default function MovieList({ movies }: IMovieListProps):ReactElement {
   return (
     <div></div>
   )
