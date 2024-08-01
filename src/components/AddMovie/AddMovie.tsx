@@ -3,6 +3,7 @@ import AddTitle from "./AddTitle";
 import AddRating from "./AddRating";
 import AddGenre from "./AddGenre";
 import AddDescription from "./AddDescription";
+import FormButtons from "./FormButtons";
 
 
 
@@ -13,6 +14,7 @@ export default function AddMovie(): ReactElement {
             <AddRating />
             <AddGenre />
             <AddDescription />
+            <FormButtons />
         </>
     )
 }
