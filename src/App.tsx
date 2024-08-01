@@ -2,6 +2,7 @@ import { ReactElement, useEffect, useState } from "react";
 import { IMovie } from "./interfaces";
 
 import AddMovie from "./components/AddMovie/AddMovie";
+import MovieList from "./components/MovieList/MovieList";
 
 export function App(): ReactElement {
   const [movies, setMovies] = useState<IMovie[]>([]);
@@ -17,6 +18,7 @@ export function App(): ReactElement {
   return (
     <>
       <AddMovie AddMovieToList={AddMovieToList} />
+      <MovieList movies={movies}/>
     </>
   );
 }
