@@ -1,17 +1,18 @@
 import { ReactElement } from 'react'
-import { useState } from 'react'
+import { AddTitleProps } from '../../interfaces';
 
 import "./index.css"
 
-export default function AddTitle(): ReactElement {
-
-  const [title, setTitle] = useState("");
-
+export default function AddTitle({title, onTitleChange}: AddTitleProps): ReactElement {
   return (
     <div className='AddTitle FormInput'>
       <p>Title: </p>
-      <form action="">
-        <input type="text" />
+      <form>
+        <input 
+          type="text" 
+          value={title}
+          onChange={(e) => onTitleChange(e.target.value)}
+        />
       </form>
     </div>
   )

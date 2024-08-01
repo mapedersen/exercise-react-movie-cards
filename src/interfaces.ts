@@ -5,3 +5,11 @@ export interface IMovie {
     description: string;
   }
   
+  export interface AddTitleProps {
+    title: string;
+    onTitleChange: (newTitle: string) => void;
+  }
+  
+  export interface FormButtonsProps {
+    onAddClick: () => void;
+  }
