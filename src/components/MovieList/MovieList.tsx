@@ -9,9 +9,9 @@ interface IMovieListProps {
 export default function MovieList({ movies }: IMovieListProps):ReactElement {
   return (
     <div className="MovieList">
-      {movies.map((movie) => {
-        return <MovieCard key={movie.title} movie={movie} />
-      })}
+      {movies.map((movie) => (
+        <MovieCard key={movie.title} movie={movie} />
+      ))}
     </div>
   )
 }
