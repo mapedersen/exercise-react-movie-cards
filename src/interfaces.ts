@@ -30,5 +30,5 @@ export interface IMovie {
   }
 
 export interface AddMovieProps {
-  AddMovieToList: (movie: IMovie) => void;
+  addMovieToList: (movie: IMovie) => void;
 }

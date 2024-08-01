@@ -7,8 +7,12 @@ import MovieList from "./components/MovieList/MovieList";
 export function App(): ReactElement {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
-  const AddMovieToList = (newMovie: IMovie) => {
+  const addMovieToList = (newMovie: IMovie) => {
     setMovies([...movies, newMovie])
+  }
+
+  const removeMovieFromList = (movieToRemove: IMovie) => {
+    setMovies(movies.filter(movie => movie !== movieToRemove))
   }
 
   useEffect(() => {
@@ -17,8 +21,8 @@ export function App(): ReactElement {
 
   return (
     <>
-      <AddMovie AddMovieToList={AddMovieToList} />
-      <MovieList movies={movies}/>
+      <AddMovie addMovieToList={addMovieToList} />
+      <MovieList movies={movies} removeMovieFromList={removeMovieFromList} />
     </>
   );
 }
