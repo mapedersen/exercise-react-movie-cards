@@ -5,7 +5,6 @@ export default function AddRating({rating, onRatingChange}: AddRatingProps ): Re
   return (
     <div className='AddRating FormInput'>
       <p>Rating: {rating}</p>
-      <form>
         <input 
           type="range"
           min="0"
@@ -13,7 +12,6 @@ export default function AddRating({rating, onRatingChange}: AddRatingProps ): Re
           value={rating}
           onChange={(e) => onRatingChange(parseInt(e.target.value))}
         />
-      </form>
     </div>
   )
 }

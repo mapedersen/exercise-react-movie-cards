@@ -5,12 +5,10 @@ export default function AddDescription({ description, onDescriptionChange }: Add
   return (
     <div className='AddDescription FormInput'>
       <p>Description: </p>
-      <form>
         <textarea 
           value={description}
           onChange={(e) => onDescriptionChange(e.target.value)}
         ></textarea>
-      </form>
     </div>
   )
 }

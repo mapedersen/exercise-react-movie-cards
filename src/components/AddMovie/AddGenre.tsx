@@ -5,7 +5,6 @@ export default function AddGenre({genre, onGenreChange}: AddGenreProps ):ReactEl
   return (
     <div className='AddGenre FormInput'>
       <p>Genre: </p>
-      <form>
         <select 
           value={genre}
           onChange={(e) => onGenreChange(e.target.value)}
@@ -15,7 +14,6 @@ export default function AddGenre({genre, onGenreChange}: AddGenreProps ):ReactEl
           <option value="Action">Action</option>
           <option value="Comedy">Comedy</option>
         </select>
-      </form>
     </div>
   )
 }

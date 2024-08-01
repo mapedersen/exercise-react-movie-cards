@@ -7,13 +7,11 @@ export default function AddTitle({title, onTitleChange}: AddTitleProps): ReactEl
   return (
     <div className='AddTitle FormInput'>
       <p>Title: </p>
-      <form>
         <input 
           type="text" 
           value={title}
           onChange={(e) => onTitleChange(e.target.value)}
         />
-      </form>
     </div>
   )
 }

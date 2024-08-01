@@ -26,5 +26,9 @@ export interface IMovie {
   }
   
   export interface FormButtonsProps {
-    onAddClick: () => void;
+    onClear: () => void;
   }
+
+export interface AddMovieProps {
+  AddMovieToList: (movie: IMovie) => void;
+}
