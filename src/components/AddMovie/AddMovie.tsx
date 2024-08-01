@@ -8,6 +8,8 @@ import FormButtons from "./FormButtons";
 import { useState } from "react";
 import { AddMovieProps, IMovie } from "../../interfaces";
 
+import "./index.css"
+
 export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement {
 
     const [title, setTitle] = useState<string>("");
@@ -41,6 +43,7 @@ export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement
 
     return (
         <form id="movieForm" onSubmit={handleSubmit}>
+            <h2>Add a movie</h2>
             <AddTitle title={title} onTitleChange={setTitle} />
             <AddRating rating={rating} onRatingChange={setRating} />
             <AddGenre genre={genre} onGenreChange={setGenre} />

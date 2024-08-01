@@ -2,6 +2,8 @@ import { ReactElement } from "react";
 import { IMovie } from "../../interfaces";
 import MovieCard from "./MovieCard";
 
+import "./index.css"
+
 interface IMovieListProps {
   movies: IMovie[];
   removeMovieFromList: (movie: IMovie) => void;

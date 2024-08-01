@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import { AddTitleProps } from '../../interfaces';
 
-import "./index.css"
+
 
 export default function AddTitle({title, onTitleChange}: AddTitleProps): ReactElement {
   return (
