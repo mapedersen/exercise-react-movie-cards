@@ -14,6 +14,16 @@ export interface IMovie {
     rating: number;
     onRatingChange: (newRating: number) => void;
   }
+
+  export interface AddGenreProps {
+    genre: string;
+    onGenreChange: (newGenre: string) => void;
+  }
+
+  export interface AddDescriptionProps {
+    description: string;
+    onDescriptionChange: (newDescription: string) => void;
+  }
   
   export interface FormButtonsProps {
     onAddClick: () => void;

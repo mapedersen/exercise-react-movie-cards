@@ -1,11 +1,15 @@
 import { ReactElement } from 'react'
+import { AddGenreProps } from '../../interfaces'
 
-export default function AddGenre():ReactElement {
+export default function AddGenre({genre, onGenreChange}: AddGenreProps ):ReactElement {
   return (
     <div className='AddGenre FormInput'>
       <p>Genre: </p>
-      <form action="">
-        <select name="" id="">
+      <form>
+        <select 
+          value={genre}
+          onChange={(e) => onGenreChange(e.target.value)}
+        >
           <option value="Horror">Horror</option>
           <option value="Romance">Romance</option>
           <option value="Action">Action</option>
