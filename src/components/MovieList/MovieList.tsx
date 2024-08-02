@@ -6,7 +6,7 @@ import "./index.css"
 
 interface IMovieListProps {
   movies: IMovie[];
-  removeMovieFromList: (movie: IMovie) => void;
+  removeMovieFromList: (id: string) => void;
 }
 
 
@@ -14,7 +14,7 @@ export default function MovieList({ movies, removeMovieFromList }: IMovieListPro
   return (
     <div className="MovieList" >
       {movies.map((movie) => (
-        <MovieCard key={movie.title} movie={movie} onClick={() => removeMovieFromList(movie)}/>
+        <MovieCard key={movie.id} movie={movie} onClick={() => removeMovieFromList(movie.id)}/>
       ))}
     </div>
   )
