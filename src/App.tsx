@@ -1,4 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
+import { Box, Flex, Container } from "@chakra-ui/react";
 import MovieList from "./components/MovieList/MovieList";
 import AddMovie from "./components/AddMovie/AddMovie";
 import { IMovie } from "./interfaces";
@@ -20,9 +21,17 @@ export function App(): ReactElement {
   }, [movies]); // Log the movies array whenever it's state changes
 
   return (
-    <>
-      <AddMovie addMovieToList={addMovieToList} />
-      <MovieList movies={movies} removeMovieFromList={removeMovieFromList} />
-    </>
+    <Flex minHeight="100vh" alignItems="center" justifyContent="center" bg="gray.50" p={4}>
+      <Container maxW="container.lg">
+        <Flex>
+          <Box flex="1" maxW="30%" mr={4}>
+            <AddMovie addMovieToList={addMovieToList} />
+          </Box>
+          <Box flex="2" maxW="70%">
+            <MovieList movies={movies} removeMovieFromList={removeMovieFromList} />
+          </Box>
+        </Flex>
+      </Container>
+    </Flex>
   );
 }

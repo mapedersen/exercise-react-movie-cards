@@ -1,16 +1,18 @@
 import { ReactElement } from 'react'
 import { FormFieldProps } from '../../../interfaces'
-
+import { FormControl, FormLabel, Textarea } from '@chakra-ui/react';
 
 export default function AddDescription({ value, name, onChange }: FormFieldProps<string>):ReactElement {
   return (
-    <div className='AddDescription FormInput'>
-      <p>Description: </p>
-        <textarea 
-          value={value}
-          name={name}
-          onChange={(e) => onChange(name, e.target.value)}
-        ></textarea>
-    </div>
+    <FormControl id={name} mb={4}>
+      <FormLabel>Description</FormLabel>
+      <Textarea
+        value={value}
+        name={name}
+        onChange={(e) => onChange(name, e.target.value)}
+        placeholder="Description"
+        size="md"
+      />
+    </FormControl>
   )
 }

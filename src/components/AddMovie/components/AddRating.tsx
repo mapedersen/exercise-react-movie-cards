@@ -1,18 +1,24 @@
 import  { ReactElement } from 'react'
 import { FormFieldProps } from '@interfaces'
+import { FormControl, FormLabel, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
 
 export default function AddRating({value, name, onChange}: FormFieldProps<number>): ReactElement {
   return (
-    <div className='AddRating FormInput'>
-      <p>Rating: {value}</p>
-        <input 
-          type="range"
-          min="0"
-          max="5"
-          name={name}
+    <FormControl id={name} mb={4}>
+      <FormLabel>Rating: {value}</FormLabel>
+        <Slider 
           value={value}
-          onChange={(e) => onChange(name, parseInt(e.target.value))}
-        />
-    </div>
+          min={0}
+          max={5}
+          step={1}
+          name={name}
+          onChange={(e) => onChange(name, e)}
+        >
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+    </FormControl>
   )
 }
