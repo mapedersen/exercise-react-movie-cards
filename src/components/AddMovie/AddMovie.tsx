@@ -5,6 +5,9 @@ import AddGenre from "./AddGenre";
 import AddDescription from "./AddDescription";
 import FormButtons from "./FormButtons";
 
+import { v4 as uuidv4 } from 'uuid';
+
+
 import { useState } from "react";
 import { AddMovieProps, IMovie } from "../../interfaces";
 
@@ -13,6 +16,7 @@ import "./index.css"
 export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement {
 
     const [formData, setFormData] = useState<IMovie>({
+        id: "",
         title: "",
         rating: 0,
         genre: "",
@@ -25,7 +29,7 @@ export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const newMovie: IMovie = {...formData};
+        const newMovie: IMovie = {...formData, id: uuidv4()};
         addMovieToList(newMovie);
         logMovie();
         clearForm();
@@ -37,6 +41,7 @@ export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement
 
     const clearForm = () => {
         setFormData({
+            id: "",
             title: "",
             rating: 0,
             genre: "",

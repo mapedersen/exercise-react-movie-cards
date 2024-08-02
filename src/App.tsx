@@ -8,12 +8,13 @@ export function App(): ReactElement {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const addMovieToList = (newMovie: IMovie) => {
-    setMovies([...movies, newMovie])
-  }
+    setMovies(prevMovies => [...prevMovies, newMovie]);
+  };
+  
 
-  const removeMovieFromList = (movieToRemove: IMovie) => {
-    setMovies(movies.filter(movie => movie !== movieToRemove))
-  }
+  const removeMovieFromList = (movieId: string) => {
+    setMovies(prevMovies => prevMovies.filter(movie => movie.id !== movieId));
+  };
 
   useEffect(() => {
     console.log('Updated movies array:', movies);
