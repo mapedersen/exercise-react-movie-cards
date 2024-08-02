@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
-import { FormFieldProps } from '../../interfaces'
+import { FormFieldProps } from '../../../interfaces'
+
 
 export default function AddDescription({ value, name, onChange }: FormFieldProps<string>):ReactElement {
   return (

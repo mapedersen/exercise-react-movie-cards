@@ -7,7 +7,7 @@ import AddGenre from "./components/AddGenre";
 import AddDescription from "./components/AddDescription";
 import FormButtons from "./components/FormButtons";
 
-import { AddMovieProps } from "../../interfaces";
+import { AddMovieProps } from "@interfaces";
 
 export default function AddMovie( {addMovieToList}: AddMovieProps): ReactElement {
 

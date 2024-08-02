@@ -1,5 +1,5 @@
 import  { ReactElement } from 'react'
-import { FormFieldProps } from '../../interfaces'
+import { FormFieldProps } from '@interfaces'
 
 export default function AddRating({value, name, onChange}: FormFieldProps<number>): ReactElement {
   return (
