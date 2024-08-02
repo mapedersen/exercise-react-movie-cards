@@ -21,17 +21,19 @@ export function App(): ReactElement {
   }, [movies]); // Log the movies array whenever it's state changes
 
   return (
-    <Flex minHeight="100vh" alignItems="center" justifyContent="center" bg="gray.50" p={4}>
-      <Container maxW="container.lg">
-        <Flex>
-          <Box flex="1" maxW="30%" mr={4}>
-            <AddMovie addMovieToList={addMovieToList} />
-          </Box>
-          <Box flex="2" maxW="70%">
-            <MovieList movies={movies} removeMovieFromList={removeMovieFromList} />
-          </Box>
-        </Flex>
-      </Container>
-    </Flex>
+    <Flex
+      direction={{ base: "column", md: "row" }}
+      wrap="wrap"
+      justifyContent="center"
+      alignItems="flex-start"
+      p={4}
+    >
+    <Box flex="1" maxW={{ base: "100%", md: "30%" }} mb={{ base: 4, md: 0 }}>
+      <AddMovie addMovieToList={addMovieToList} />
+    </Box>
+    <Box flex="2" maxW={{ base: "100%", md: "70%" }}>
+      <MovieList movies={movies} removeMovieFromList={removeMovieFromList} />
+    </Box>
+  </Flex>
   );
 }
