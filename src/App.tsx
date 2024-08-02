@@ -11,7 +11,6 @@ export function App(): ReactElement {
     setMovies(prevMovies => [...prevMovies, newMovie]);
   };
   
-
   const removeMovieFromList = (movieId: string) => {
     setMovies(prevMovies => prevMovies.filter(movie => movie.id !== movieId));
   };

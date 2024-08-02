@@ -1,49 +1,17 @@
-import { useState, ReactElement } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { ReactElement } from "react";
+import { useMovieForm } from "./customHooks/useMovieForm";
 
-import AddTitle from "./AddTitle";
-import AddRating from "./AddRating";
-import AddGenre from "./AddGenre";
-import AddDescription from "./AddDescription";
-import FormButtons from "./FormButtons";
+import AddTitle from "./components/AddTitle";
+import AddRating from "./components/AddRating";
+import AddGenre from "./components/AddGenre";
+import AddDescription from "./components/AddDescription";
+import FormButtons from "./components/FormButtons";
 
-import { AddMovieProps, IMovie } from "../../interfaces";
+import { AddMovieProps } from "../../interfaces";
 
 export default function AddMovie( {addMovieToList}: AddMovieProps): ReactElement {
 
-    const [formData, setFormData] = useState<IMovie>({
-        id: "",
-        title: "",
-        rating: 0,
-        genre: "",
-        description: ""
-    });
-
-    const handleInputChange = (name: keyof IMovie, value: string | number) => {
-        setFormData(prev => ({...prev, [name]: value }))
-    }
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const newMovie: IMovie = {...formData, id: uuidv4()};
-        addMovieToList(newMovie);
-        logMovie();
-        clearForm();
-    }
-
-    const logMovie = () => {
-        console.log('Movie details:', formData);
-    }
-
-    const clearForm = () => {
-        setFormData({
-            id: "",
-            title: "",
-            rating: 0,
-            genre: "",
-            description: "",
-        })
-    }
+    const { formData, handleInputChange, handleSubmit, clearForm } = useMovieForm(addMovieToList);
 
     return (
         <form id="movieForm" onSubmit={handleSubmit}>
