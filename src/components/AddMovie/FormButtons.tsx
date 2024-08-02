@@ -1,7 +1,6 @@
 import { ReactElement } from 'react'
 import { FormButtonsProps } from '../../interfaces'
 
-
 export default function FormButtons( {onClear}: FormButtonsProps ):ReactElement {
   return (
     <>

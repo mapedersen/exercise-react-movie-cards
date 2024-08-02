@@ -1,19 +1,15 @@
-import { ReactElement } from "react";
+import { useState, ReactElement } from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 import AddTitle from "./AddTitle";
 import AddRating from "./AddRating";
 import AddGenre from "./AddGenre";
 import AddDescription from "./AddDescription";
 import FormButtons from "./FormButtons";
 
-import { v4 as uuidv4 } from 'uuid';
-
-
-import { useState } from "react";
 import { AddMovieProps, IMovie } from "../../interfaces";
 
-import "./index.css"
-
-export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement {
+export default function AddMovie( {addMovieToList}: AddMovieProps): ReactElement {
 
     const [formData, setFormData] = useState<IMovie>({
         id: "",

@@ -1,14 +1,11 @@
 import { ReactElement } from "react";
-import { IMovie } from "../../interfaces";
 import MovieCard from "./MovieCard";
-
-import "./index.css"
+import { IMovie } from "../../interfaces";
 
 interface IMovieListProps {
   movies: IMovie[];
   removeMovieFromList: (id: string) => void;
 }
-
 
 export default function MovieList({ movies, removeMovieFromList }: IMovieListProps):ReactElement {
   return (

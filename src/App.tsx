@@ -1,8 +1,8 @@
 import { ReactElement, useEffect, useState } from "react";
+import MovieList from "./components/MovieList/MovieList";
+import AddMovie from "./components/AddMovie/AddMovie";
 import { IMovie } from "./interfaces";
 
-import AddMovie from "./components/AddMovie/AddMovie";
-import MovieList from "./components/MovieList/MovieList";
 
 export function App(): ReactElement {
   const [movies, setMovies] = useState<IMovie[]>([]);
