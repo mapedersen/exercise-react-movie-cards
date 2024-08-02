@@ -12,42 +12,45 @@ import "./index.css"
 
 export default function addMovie( {addMovieToList}: AddMovieProps): ReactElement {
 
-    const [title, setTitle] = useState<string>("");
-    const [rating, setRating] = useState<number>(0);
-    const [genre, setGenre] = useState<string>("");
-    const [description, setDescription] = useState<string>("");
+    const [formData, setFormData] = useState<IMovie>({
+        title: "",
+        rating: 0,
+        genre: "",
+        description: ""
+    });
+
+    const handleInputChange = (name: keyof IMovie, value: string | number) => {
+        setFormData(prev => ({...prev, [name]: value }))
+    }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const newMovie: IMovie = {
-            title,
-            rating,
-            genre,
-            description
-          };
+        const newMovie: IMovie = {...formData};
         addMovieToList(newMovie);
         logMovie();
         clearForm();
     }
 
     const logMovie = () => {
-        console.log('Movie details:', { title, rating, genre, description });
+        console.log('Movie details:', formData);
     }
 
     const clearForm = () => {
-        setTitle("");
-        setRating(0);
-        setGenre("");
-        setDescription("");
+        setFormData({
+            title: "",
+            rating: 0,
+            genre: "",
+            description: "",
+        })
     }
 
     return (
         <form id="movieForm" onSubmit={handleSubmit}>
             <h2>Add a movie</h2>
-            <AddTitle title={title} onTitleChange={setTitle} />
-            <AddRating rating={rating} onRatingChange={setRating} />
-            <AddGenre genre={genre} onGenreChange={setGenre} />
-            <AddDescription description={description} onDescriptionChange={setDescription} />
+            <AddTitle name="title" value={formData.title} onChange={handleInputChange} />
+            <AddRating name="rating" value={formData.rating} onChange={handleInputChange} />
+            <AddGenre name="genre" value={formData.genre} onChange={handleInputChange} />
+            <AddDescription name="description" value={formData.description} onChange={handleInputChange} />
             <FormButtons onClear={clearForm}/>
         </form>
     )

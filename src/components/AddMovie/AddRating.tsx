@@ -1,16 +1,17 @@
 import  { ReactElement } from 'react'
-import { AddRatingProps } from '../../interfaces'
+import { FormFieldProps } from '../../interfaces'
 
-export default function AddRating({rating, onRatingChange}: AddRatingProps ): ReactElement {
+export default function AddRating({value, name, onChange}: FormFieldProps<number>): ReactElement {
   return (
     <div className='AddRating FormInput'>
-      <p>Rating: {rating}</p>
+      <p>Rating: {value}</p>
         <input 
           type="range"
           min="0"
-          max="5" 
-          value={rating}
-          onChange={(e) => onRatingChange(parseInt(e.target.value))}
+          max="5"
+          name={name}
+          value={value}
+          onChange={(e) => onChange(name, parseInt(e.target.value))}
         />
     </div>
   )
